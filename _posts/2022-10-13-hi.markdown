@@ -1,0 +1,64 @@
+---
+layout: post
+title: 리액트 파일
+date: 2020-01-02 19:20:23 +0900
+category: sample
+---
+### index.js
+
+src 폴더에 포함되어 있다. 메인 프로그램이라고 할 수 있다. 여기에서 HTML템플릿 및 JavaScript의 컴포넌트를 조합하여 렌더링하고 실제 표시한다.
+
+### app.js
+
+src 폴더에 포함되어 있다. 이것은 컴포넌트를 정의하는 프로그램이다. 실제로 화면에 표시되는 내용 등은 여기에서 정의된다.
+
+### index.html
+
+public 폴더에 포함되어 있다. 메인 프로그램인 index.js에 대응되는 것으로, HTML 템플릿 파일이다. 이 파일이 직접 표시되는 것은 아니고, index.js에 의해 렌더링된 결과가 표시된다. 
+
+index.html 이름을 바꿀시 에러가 발생된다.
+
+
+------
+
+### index.js
+
+``` javascript
+import React from 'react';
+
+import ReactDOM from 'react-dom/client';
+
+import './index.css';
+
+import App from './App';
+
+  
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+
+  <React.StrictMode>
+
+    <App />
+
+  </React.StrictMode>
+
+);
+
+// 아래는 같은 코드 이다.
+/*
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+*/
+```
+
+_ReactDOM.render(첫번째인자, 두번째인자)_
+
+첫번째 인자는 app.js로 정의하고 있는 app 컴포넌트를 지정하고 있다.
+두번째 인자는 root라는 ID의 요소를 지정하고 있다.
+
+app 컴포넌트가 root 태그에 포함된 코드가 렌더링되고 출력
